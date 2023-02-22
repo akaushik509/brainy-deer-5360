@@ -22,6 +22,7 @@ const Home = () => {
         <Heading fontSize={{ base: "16px", sm: "20px", md: "24px", lg: "28px", xl: "32px" }}>TRENDING CATEGORIES</Heading>
         <ImageBox/>
         <ImageBox2/>
+        <Heading>HOme Page</Heading>
       </Box>
     </>
   )
