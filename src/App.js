@@ -1,15 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
 import AllRoutes from './Routes/AllRoutes';
-import Cart from './Pages/Cart/Cart';
-
-
+import Navbar from './Components/HomePage/Navbar';
 
 function App() {
   return (
     <div className="App">
-      {/* <AllRoutes/> */}
-      <Cart />
+      <Navbar/>
+      <AllRoutes/>
     </div>
   );
 }
