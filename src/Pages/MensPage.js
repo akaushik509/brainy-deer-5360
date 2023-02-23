@@ -6,7 +6,7 @@ import { getProducts } from "../Redux/action";
 import { AiOutlineHeart } from "react-icons/ai"
 import { BiRupee } from "react-icons/bi"
 import "../CSS/Mens.css";
-import Sidebar from "./Sidebar";
+import Sidebar from "../Components/Sidebar";
 const MensPage = () => {
   const products = useSelector((store) => store.products);
   const dispatch = useDispatch();
@@ -37,13 +37,13 @@ const MensPage = () => {
                 <img src={el.image} alt="prod_img" />
                 <div className="flextext">
                     <div>
-                <h4>{el.Brand}</h4>
-                <p>{el.name}</p>
-                <p> <span><BiRupee/></span><span>{el.price}</span></p>
+                        <h4>{el.Brand}</h4>
+                        <p>{el.name}</p>
+                        <p> <span><BiRupee/></span><span>{el.price}</span></p>
                     </div>
-                <div>
-                <AiOutlineHeart/>
-                </div>
+                    <div>
+                      <AiOutlineHeart/>
+                    </div>
                 </div>
               </div>
             );
