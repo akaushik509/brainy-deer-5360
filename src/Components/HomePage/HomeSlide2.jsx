@@ -96,7 +96,7 @@ const Homeslide2 = () => {
             <Slider {...settings}>
             {
                 carouselItems.map((e)=>(
-                    <Box>
+                    <Box key={e.id}>
                         <Image src={e.imgUrl} />
                         <Text>{e.tag}</Text>
                     </Box>
