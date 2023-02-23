@@ -30,7 +30,7 @@ const Carouse = () => {
         <Slider>
         {
             carouselItems.map((e)=>(
-                <Image src={e.imgUrl} />
+                <Image key={e.id} src={e.imgUrl} />
             ))
         }
         </Slider>
