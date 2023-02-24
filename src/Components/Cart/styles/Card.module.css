@@ -1,21 +1,19 @@
-.main{
-    /* border: 1px solid yellow; */
-    width: 50%;
-    margin-top: 15%;
-    margin-left: 10px;
-}
 .container {
     display: flex;
-    width: 60%;
+    /* width: 40%; */
     padding: 20px;
     margin: auto;
-    border: 1px solid black;
+    /* border: 1px solid red; */
+    margin-top: 40px;
   }
   .Cont {
-    /* border: 1px solid yellow; */
     margin: auto;
     border: 0.5px solid grey;
     padding-bottom: 10px;
+    width: 40%;
+    margin-left: 50px;
+    margin-top: 40px;
+    /* border: 1px solid red; */
   }
   .One {
     width: 80%;
@@ -60,7 +58,7 @@
     margin-bottom: 1;
   }
   .Options {
-    width: 100%;
+    width: 80%;
     padding: 0px 20px;
     display: flex;
     justify-content: space-between;
@@ -75,10 +73,12 @@
   .Options > button:nth-child(1) {
     background-color: red;
     font-weight: bolder;
+    width: 40%;
   }
   .Options > button:nth-child(2) {
     background-color: #47a5a9;
     font-weight: bolder;
+    width: 40%;
   }
   .Empty {
     display: flex;

@@ -8,7 +8,8 @@ import { BiRupee } from "react-icons/bi"
 import "../CSS/Mens.css";
 import Sidebar from "./Sidebar";
 const MensPage = () => {
-  const products = useSelector((store) => store.products);
+  const {products} = useSelector((store) => store.products);
+  console.log(products)
   const dispatch = useDispatch();
   const location = useLocation();
   const [searchParams] = useSearchParams();
@@ -25,6 +26,7 @@ const MensPage = () => {
       dispatch(getProducts(getProductsParams));
     }
   }, [location.search, dispatch, products.length, searchParams, location]);
+
 
   return (
     <div className="main">
