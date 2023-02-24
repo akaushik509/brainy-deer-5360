@@ -4,7 +4,11 @@ import Address from "../Pages/Cart/Address";
 import Cart from "../Pages/Cart/Cart";
 import Home from "../Pages/Home";
 import MensPage from "../Pages/MensPage";
+
 import Payment from "../Pages/Payment/Payment";
+
+import MyAcoount from "../Pages/MyAcoount";
+
 import Register from "../Pages/Register";
 
 function AllRoutes() {
@@ -18,6 +22,7 @@ function AllRoutes() {
       <Route path="/payment" element={<Payment/>}></Route>
       <Route path="/login" element={<Register />} />
       <Route path="/mens" element={<MensPage/>} />
+      <Route path="/myaccount" element={<MyAcoount/>} />
 
     </Routes>
   );

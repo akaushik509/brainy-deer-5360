@@ -83,7 +83,7 @@ const ImageBox = () => {
             <Slider {...settings}>
             {
                 carouselItems.map((e)=>(
-                    <Box marginRight={"50px"}>
+                    <Box marginRight={"50px"} key={e.id}>
                         <Image border={"1px solid black"} src={e.imgUrl} />
                     </Box>
                 ))
@@ -100,7 +100,7 @@ const ImageBox = () => {
             <Slider {...settings}>
             {
                 carouselItems.map((e)=>(
-                    <Box>
+                    <Box key={e.id}>
                         <Avatar size={{ base: "xl",sm: "lg",md: "2xl" }} src={e.imgUrl} />
                         <Text>{e.tag}</Text>
                     </Box>
