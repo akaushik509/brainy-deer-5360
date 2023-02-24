@@ -49,7 +49,7 @@ export const removeToCart = () => {
 export const getProducts = (params) => (dispatch) => {
   dispatch(getProductRequest());
   return axios
-    .get(` https://product-data.onrender.com/mens`, params)
+    .get(`https://product-data.onrender.com/mens`, params)
     .then((res) => {
       // console.log(res)
       dispatch(getProductSuccess(res.data));
@@ -62,7 +62,7 @@ export const getProducts = (params) => (dispatch) => {
 export const getWomens = (params) => (dispatch) => {
   dispatch(getProductRequest());
   return axios
-    .get(` https://product-data.onrender.com/womens`, params)
+    .get(`https://product-data.onrender.com/womens`, params)
     .then((res) => {
       // console.log(res)
       dispatch(getProductSuccess(res.data));
@@ -74,7 +74,7 @@ export const getWomens = (params) => (dispatch) => {
 
 export const addToCart = (params) => (dispatch) => {
   return axios
-    .post(` https://product-data.onrender.com/cart`, params)
+    .post(`https://product-data.onrender.com/cart`, params)
     .then((res) => {
       dispatch(addToCart(res.data));
     })
@@ -87,7 +87,7 @@ export const addToCart = (params) => (dispatch) => {
 
 export const deleteToCart = (id) => (dispatch) => {
   return axios
-    .delete(` https://product-data.onrender.com/cart${id}`)
+    .delete(`https://product-data.onrender.com/cart${id}`)
     .then((res) => {
       dispatch(removeToCart(res.data));
     })
@@ -98,13 +98,13 @@ export const deleteToCart = (id) => (dispatch) => {
 
 
 
-// export const addToWishlist = (params) => (dispatch) => {
-//   return axios
-//     .post(` https://product-data.onrender.com/wishlist`, params)
-//     .then((res) => {
-//       dispatch(addToWishlist(res.data));
-//     })
-//     .catch((e) => {
-//       console.log(e);
-//     });
-// };
+export const addToWishlist = (params) => (dispatch) => {
+  return axios
+    .post(`https://product-data.onrender.com/wishlist`, params)
+    .then((res) => {
+      dispatch(addToWishlist(res.data));
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};

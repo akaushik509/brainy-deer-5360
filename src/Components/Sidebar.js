@@ -30,7 +30,7 @@ const Sidebar = () => {
     sort && (params.sort = sort);
     setSearchParams(params);
   }, [category, setSearchParams, sort]);
-  const products = useSelector((store) => store.products);
+  const {products} = useSelector((store) => store.products);
   return (
     <div className="sidebar-container">
       <p className="heading">
@@ -41,7 +41,7 @@ const Sidebar = () => {
       <div className="inside-container">
         <div>
           <h4>FILTERS</h4>
-          <div>
+          <div className="category">
             <p>Category</p>
             <div>
               <input
@@ -83,11 +83,11 @@ const Sidebar = () => {
         </div>
         <h4>SORT</h4>
         <div onChange={handleSort}>
-          <select name="sortBy">
+          {/* <select name="sortBy">
             <option value="">Popular</option>
             <option value="asc">Low-to-High</option>
             <option value="desc">High-to-Low</option>
-          </select>
+          </select> */}
 
           <input
             type="radio"
@@ -104,12 +104,14 @@ const Sidebar = () => {
             defaultChecked={sort === "desc"}
           />
           <label>High-to-Low</label>
+          <br/>
           <input
             type="radio"
             value=""
             name="sortBy"
             defaultChecked={sort === ""}
           />
+          
           <label>Default</label>
         </div>
       </div>

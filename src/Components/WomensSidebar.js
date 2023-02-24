@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
-import "./SidebarStyles.css";
+import "../CSS/sidebarStyles.css"
 const WomenSidebar = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCategory = searchParams.getAll("category");
@@ -30,16 +30,17 @@ const WomenSidebar = () => {
     sort && (params.sort = sort);
     setSearchParams(params);
   }, [category, setSearchParams, sort]);
-  const products = useSelector((store) => store.products);
+  const {products} = useSelector((store) => store.products);
   return (
     <div className="sidebar-container">
       <p className="heading">
-        <u> Women Clothing</u><span>( {products.length} )</span>
+       Women Clothing<span>( {products.length} )</span>
+       <hr/>
       </p>
       <div className="inside-container">
-        <div>
+        
           <h4>FILTERS</h4>
-          <div>
+          <div className="category">
             <p>Category</p>
             <div>
               <input
@@ -78,7 +79,7 @@ const WomenSidebar = () => {
               <label>hoodies</label>
             </div>
           </div>
-        </div>
+        
         <h4>SORT</h4>
         <div onChange={handleSort} className="popular">
           <select name="sortBy">

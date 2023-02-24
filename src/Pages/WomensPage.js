@@ -7,16 +7,17 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { BsFillCartPlusFill } from "react-icons/bs";
 import "../CSS/Mens.css";
 import WomenSidebar from "../Components/WomensSidebar";
+// import Sidebar from "../Components/Sidebar";
 
 const WomensPage = () => {
-  const products = useSelector((store) => store.products);
+  const {products} = useSelector((store) => store.products);
   const dispatch = useDispatch();
   const location = useLocation();
   const [searchParams] = useSearchParams();
   const wishlist = useSelector((store) => store.wishlist);
-  console.log("wishlist", wishlist);
+  // console.log("wishlist", wishlist);
   const carts = useSelector((store) => store.cart);
-  console.log("carts", carts);
+  // console.log("carts", carts);
 
   useEffect(() => {
     if (location || products.length === 0) {
@@ -55,7 +56,10 @@ const WomensPage = () => {
 
   return (
     <div className="main">
-      <WomenSidebar />
+      <div className="fixed-sidebar">
+          <WomenSidebar />
+      </div>
+      
       <div className="Card">
         {products.length > 0 &&
           products.map((el) => {
@@ -66,8 +70,8 @@ const WomensPage = () => {
                   <div>
                     <h4>{el.Brand}</h4>
                     <p>{el.name}</p>
-                    <p>
-                      <span>₹{el.price}</span> <del>₹{el.oldprice}</del>
+                    <p >
+                      <span className="price"><b>₹{el.price}</b> </span>  <span><del>₹{el.oldprice}</del></span> 
                     </p>
                   </div>
 
