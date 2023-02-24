@@ -49,7 +49,7 @@ export const removeToCart = () => {
 export const getProducts = (params) => (dispatch) => {
   dispatch(getProductRequest());
   return axios
-    .get(`https://product-data.onrender.com/mens`, params)
+    .get(`https://grumpy-lingerie-foal.cyclic.app/prod/search?type=Mens`, params)
     .then((res) => {
       // console.log(res)
       dispatch(getProductSuccess(res.data));
@@ -58,11 +58,11 @@ export const getProducts = (params) => (dispatch) => {
       dispatch(getProductFailure());
     });
 };
-
+// https://grumpy-lingerie-foal.cyclic.app/prod
 export const getWomens = (params) => (dispatch) => {
   dispatch(getProductRequest());
   return axios
-    .get(`https://product-data.onrender.com/womens`, params)
+    .get(`https://grumpy-lingerie-foal.cyclic.app/prod/search?type=Womens`, params)
     .then((res) => {
       // console.log(res)
       dispatch(getProductSuccess(res.data));
@@ -74,9 +74,9 @@ export const getWomens = (params) => (dispatch) => {
 
 export const addToCart = (params) => (dispatch) => {
   return axios
-    .post(`https://product-data.onrender.com/cart`, params)
+    .post(`https://grumpy-lingerie-foal.cyclic.app/prod/cart/addtocart`, params)
     .then((res) => {
-      dispatch(addToCart(res.data));
+      dispatch(moveToCart(res.data));
     })
     .catch((e) => {
       console.log(e);
