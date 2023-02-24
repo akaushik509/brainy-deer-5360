@@ -56,7 +56,7 @@ const Navbar = () => {
                     <Flex w="75%" h={"50px"} justifyContent={"space-between"}>
                         <Flex>
                             <Center>
-                                <Image w={"25px"} alt="logo.png" src={`/Images/logo.png`}/>
+                                <NavLink to="/"><Image h={"40px"} alt="logo.png" src={`/Images/logo.png`}/></NavLink>
                                 <Button bg={"white.500"} _hover={{ bg: "white.500" }} fontFamily="cursive">Trendy Treasures</Button>
 
                                 {/* MEN */}
@@ -389,8 +389,8 @@ const Navbar = () => {
                                     <Button onMouseEnter={onOpen} bg={"white.500"} borderBottom="2px solid transparent" _hover={{ borderBottomColor: "yellow.500" }}>Login</Button>
                                 </PopoverTrigger>
                                 <PopoverContent width="auto" gap="3px" padding="5px" >
-                                    <Button>User Login</Button>
-                                    <Button>Admin Login</Button>
+                                    <Button><NavLink to="/login">User Login</NavLink></Button>
+                                    <Button><NavLink to="/">Admin Login</NavLink></Button>
                                 </PopoverContent>
                                 </Popover>
                                 
@@ -422,7 +422,7 @@ const Navbar = () => {
                                         <Text size={"5px"} color="gray.500">SHOP IN</Text>
                                         <Text fontWeight={"bold"}><NavLink to="/">Men</NavLink></Text>
                                         <Text fontWeight={"bold"}><NavLink to="/">Women</NavLink></Text>
-                                        <Text fontWeight={"bold"}><NavLink to="/">Accessories</NavLink></Text>
+                                        <Text fontWeight={"bold"}><NavLink to="/myaccount">Accessories</NavLink></Text>
                                         <Flex>
                                             <Center justifyContent={"space-between"} w="100%">
                                                 <Text fontWeight={"bold"}><NavLink to="/" >Designs of the Week</NavLink></Text>
@@ -473,24 +473,9 @@ const Navbar = () => {
                                 </DrawerContent>
                             </Drawer>
                             
-                            <Image h={"40px"} alt="logo.png" src={`/Images/logo.png`}/>
+                            <NavLink to="/"><Image h={"40px"} alt="logo.png" src={`/Images/logo.png`}/></NavLink>
                         </Flex>
                         <Flex> 
-                                {/* <Popover
-                                onOpen={onOpen}
-                                onClose={onClose}
-                                placement="bottom-start"
-                                trigger="hover"
-                                closeOnBlur={false}
-                                >
-                                <PopoverTrigger>
-                                    <Button onMouseEnter={onOpen} bg={"white.500"} borderBottom="2px solid transparent" _hover={{ borderBottomColor: "yellow.500" }}>Login</Button>
-                                </PopoverTrigger>
-                                <PopoverContent width="auto" gap="3px" padding="5px" >
-                                    <Button>User Login</Button>
-                                    <Button>Admin Login</Button>
-                                </PopoverContent>
-                                </Popover> */}
                                 <Menu>
                                 {({ isOpen }) => (
                                     <>
@@ -498,8 +483,8 @@ const Navbar = () => {
                                         {isOpen = 'Login'}
                                     </MenuButton>
                                     <MenuList>
-                                        <MenuItem>User Login</MenuItem>
-                                        <MenuItem /* onClick={() => alert('Kagebunshin')} */>Admin Login</MenuItem>
+                                        <MenuItem><NavLink to="/login">User Login</NavLink></MenuItem>
+                                        <MenuItem><NavLink to="/admin">Admin Login</NavLink></MenuItem>
                                     </MenuList>
                                     </>
                                 )}
@@ -517,9 +502,9 @@ const Navbar = () => {
         <Flex h="60px" >
             <Box  w={{sm: '5px', md: '400px', lg: '800px'}}  margin="auto" >
                 <Center justifyContent="space-evenly">
-                <Button bg={"white.500"} _hover={{bg:"white.500"}} >MEN</Button>
-                <Button bg={"white.500"} _hover={{bg:"white.500"}} >WOMEN</Button>
-                <Button bg={"white.500"} _hover={{bg:"white.500"}} >ACCESSORIES</Button>
+                <Button bg={"white.500"} _hover={{bg:"white.500"}} ><NavLink to="/mens">MEN</NavLink></Button>
+                <Button bg={"white.500"} _hover={{bg:"white.500"}} ><NavLink to="/login">WOMEN</NavLink></Button>
+                <Button bg={"white.500"} _hover={{bg:"white.500"}} ><NavLink to="/myaccount">ACCESSORIES</NavLink></Button>
                 </Center>
             </Box>
         </Flex>
