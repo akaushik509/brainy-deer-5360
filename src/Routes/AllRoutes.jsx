@@ -8,8 +8,8 @@ import WomensPage from "../Pages/WomensPage";
 function AllRoutes() {
   return (
     <Routes>
-       {/* <Route path="/" element={<Home />}></Route>
-      <Route path="/login" element={<Register />} /> */}
+       <Route path="/" element={<Home />}></Route>
+      <Route path="/login" element={<Register />} />
       <Route path="/mens" element={<MensPage/>} />
       <Route path="/womens" element={<WomensPage/>} />
     </Routes>
