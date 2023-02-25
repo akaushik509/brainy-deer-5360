@@ -74,7 +74,7 @@ export const getWomens = (params) => (dispatch) => {
 
 export const addToCart = (params) => (dispatch) => {
   return axios
-    .post(`https://grumpy-lingerie-foal.cyclic.app/prod/cart/addtocart`, params)
+    .post(`https://product-data.onrender.com/cart`, params)
     .then((res) => {
       dispatch(moveToCart(res.data));
     })
