@@ -11,19 +11,38 @@ import { Box, Button,Drawer,
     MenuGroup,
     MenuOptionGroup,
     MenuDivider,
-    DrawerCloseButton, Center, Icon, Flex, Image, Input, Show, InputGroup, InputLeftElement, Text, HStack, Popover, PopoverContent, PopoverTrigger, useDisclosure, VStack, Grid, Stack, Divider, Avatar } from '@chakra-ui/react'
+    DrawerCloseButton, Center, Icon, Flex, Image, Input, Show, InputGroup, InputLeftElement, Text, HStack, Popover, PopoverContent, PopoverTrigger, useDisclosure, VStack, Grid, Stack, Divider, Avatar, Heading } from '@chakra-ui/react'
 import { ArrowDownIcon, Search2Icon } from '@chakra-ui/icons'
 import { FaHeart } from "react-icons/fa";
 import { TiShoppingBag, TiThMenu } from "react-icons/ti";
 
 import { NavLink } from "react-router-dom";
 
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react';
 
 const Navbar = () => {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [placement, setPlacement] = useState('left')
+
+    const token = localStorage.getItem('token');
+    const userName = localStorage.getItem('userName');
+    const ProfilePic = localStorage.getItem('ProfilePic');
+    const emailid = localStorage.getItem('emailid');
+    const mobile = localStorage.getItem('mobile');
+    let isLoggedIn = !!token; // Check if token exists
+
+    const logoutfunction=()=>{
+        localStorage.setItem('token', "");
+        localStorage.setItem('userName', "");
+        localStorage.setItem('ProfilePic',"");
+        localStorage.setItem('emailid',"");
+        localStorage.setItem('mobile',"");
+        const token = localStorage.getItem('token');
+        
+        isLoggedIn = !!token; // Check if token exists
+    }
+    
 
   return (
     <>          
@@ -377,8 +396,46 @@ const Navbar = () => {
                                     <Input bg="#EAEAEA" w={"400px"} focusBorderColor="black.100" type='text' placeholder='Search by product, category or collection' />
                                 </InputGroup>
                                 <Text bg={"white.500"} _hover={{ bg: "white.500" }}>|</Text>
+
+                                {
+                                    isLoggedIn?(
+                                    <Popover
+                                    onOpen={onOpen}
+                                    onClose={onClose}
+                                    placement="bottom-start"
+                                    trigger="hover"
+                                    closeOnBlur={false}
+                                    >
+                                    <PopoverTrigger>
+                                        <Button  bg={"white.500"} borderBottom="2px solid transparent"><Avatar size="sm" objectFit="cover" src={ProfilePic}/></Button>
+                                    </PopoverTrigger>
+                                    <PopoverContent width="auto" gap="3px" padding="5px" >
+                                        <Button><Text fontSize={"sm"}>Hello, {userName}</Text></Button>
+                                        <Button><NavLink to="/myaccount">My Account</NavLink></Button>
+                                        <Button><NavLink to="/order">Orders</NavLink></Button>
+                                        <Button onClick={()=>{logoutfunction()}}><NavLink to="/">Logout</NavLink></Button>
+                                    </PopoverContent>
+                                    </Popover>) :
+                                    (
+                                        <Popover
+                                        onOpen={onOpen}
+                                        onClose={onClose}
+                                        placement="bottom-start"
+                                        trigger="hover"
+                                        closeOnBlur={false}
+                                        >
+                                        <PopoverTrigger>
+                                            <Button onMouseEnter={onOpen} bg={"white.500"} borderBottom="2px solid transparent" _hover={{ borderBottomColor: "yellow.500" }}>Login</Button>
+                                        </PopoverTrigger>
+                                        <PopoverContent width="auto" gap="3px" padding="5px" >
+                                            <Button><NavLink to="/login">User Login</NavLink></Button>
+                                            <Button><NavLink to="/">Admin Login</NavLink></Button>
+                                        </PopoverContent>
+                                        </Popover>
+                                    )
+                                }
                                 
-                                <Popover
+                                {/* <Popover
                                 onOpen={onOpen}
                                 onClose={onClose}
                                 placement="bottom-start"
@@ -392,7 +449,7 @@ const Navbar = () => {
                                     <Button><NavLink to="/login">User Login</NavLink></Button>
                                     <Button><NavLink to="/">Admin Login</NavLink></Button>
                                 </PopoverContent>
-                                </Popover>
+                                </Popover> */}
                                 
                                 <Button bg={"white.500"} _hover={{ bg: "white.500" }}><Icon as={FaHeart} color="black.500" boxSize={6} /></Button>
                                 <Button bg={"white.500"} _hover={{ bg: "white.500" }}><Icon as={TiShoppingBag} boxSize={6} color="gray.500" /></Button>
@@ -416,7 +473,7 @@ const Navbar = () => {
                                 <DrawerOverlay />
                                 <DrawerContent>
                                 <DrawerCloseButton />
-                                <DrawerHeader borderBottomWidth='1px'>Hello Avinash</DrawerHeader>
+                                <DrawerHeader borderBottomWidth='1px'>{isLoggedIn?(`Hello ${userName}`):("Login")}</DrawerHeader>
                                 <DrawerBody>
                                     <Stack gap="15px">
                                         <Text size={"5px"} color="gray.500">SHOP IN</Text>
@@ -452,8 +509,8 @@ const Navbar = () => {
                                         </Flex>
                                         <Divider orientation="horizontal" border={"1px solid gray"}/>
                                         <Text size={"5px"} color="gray.500">MY PROFILE</Text>
-                                        <Text fontWeight={"bold"}><NavLink to="/" >My Account</NavLink></Text>
-                                        <Text fontWeight={"bold"}><NavLink to="/" >My Orders</NavLink></Text>
+                                        <Text fontWeight={"bold"}><NavLink to="/myaccount" >My Account</NavLink></Text>
+                                        <Text fontWeight={"bold"}><NavLink to="/order" >My Orders</NavLink></Text>
                                         <Text fontWeight={"bold"}><NavLink to="/" >My Wallet</NavLink></Text>
                                         <Text fontWeight={"bold"}><NavLink to="/" >My Wishlist</NavLink></Text>
                                         <Text size={"5px"} color="gray.500">CONTACT US</Text>
@@ -475,7 +532,32 @@ const Navbar = () => {
                             
                             <NavLink to="/"><Image h={"40px"} alt="logo.png" src={`/Images/logo.png`}/></NavLink>
                         </Flex>
-                        <Flex> 
+
+                        {
+                            isLoggedIn?(
+                                <Flex> 
+                                        <Menu>
+                                        {({ isOpen }) => (
+                                            <>
+                                            <MenuButton isActive={isOpen} as={Button} bg={"white.500"} borderBottom="2px solid transparent" _hover={{ backgroundColor:"#FDD835" }} >
+                                                <Text>{userName}</Text>
+                                            </MenuButton>
+                                            <MenuList>
+                                                <MenuItem><NavLink to="/myaccount">My Account</NavLink></MenuItem>
+                                                <MenuItem><NavLink to="/order">Orders</NavLink></MenuItem>
+                                                <MenuItem onClick={()=>{logoutfunction()}}><NavLink to="/">Logout</NavLink></MenuItem>
+                                            </MenuList>
+                                            </>
+                                        )}
+                                        </Menu>
+                                        
+                                        <Button bg={"white.500"} _hover={{ bg: "white.500" }}><Icon as={FaHeart} color="black.500" boxSize={6} /></Button>
+                                        <Button bg={"white.500"} _hover={{ bg: "white.500" }}><Icon as={TiShoppingBag} boxSize={6} color="gray.500" /></Button>
+                                    
+                                </Flex>
+
+                            ):(
+                                <Flex> 
                                 <Menu>
                                 {({ isOpen }) => (
                                     <>
@@ -494,6 +576,30 @@ const Navbar = () => {
                                 <Button bg={"white.500"} _hover={{ bg: "white.500" }}><Icon as={TiShoppingBag} boxSize={6} color="gray.500" /></Button>
                             
                         </Flex>
+
+                            )
+                        }
+
+                        {/* <Flex> 
+                                <Menu>
+                                {({ isOpen }) => (
+                                    <>
+                                    <MenuButton isActive={isOpen} as={Button} bg={"white.500"} borderBottom="2px solid transparent" _hover={{ backgroundColor:"#FDD835" }} >
+                                        {isOpen = 'Login'}
+                                    </MenuButton>
+                                    <MenuList>
+                                        <MenuItem><NavLink to="/login">User Login</NavLink></MenuItem>
+                                        <MenuItem><NavLink to="/admin">Admin Login</NavLink></MenuItem>
+                                    </MenuList>
+                                    </>
+                                )}
+                                </Menu>
+                                
+                                <Button bg={"white.500"} _hover={{ bg: "white.500" }}><Icon as={FaHeart} color="black.500" boxSize={6} /></Button>
+                                <Button bg={"white.500"} _hover={{ bg: "white.500" }}><Icon as={TiShoppingBag} boxSize={6} color="gray.500" /></Button>
+                            
+                        </Flex> */}
+
                     </Flex>
                 
             </Box>
