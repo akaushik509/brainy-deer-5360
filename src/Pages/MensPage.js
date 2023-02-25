@@ -10,6 +10,9 @@ import "../CSS/Mens.css";
 import Sidebar from "../Components/Sidebar";
 const MensPage = () => {
   const {products} = useSelector((store) => store.products);
+
+  console.log(products)
+
   const dispatch = useDispatch();
   const location = useLocation();
   const [searchParams] = useSearchParams();
@@ -26,6 +29,8 @@ const MensPage = () => {
       dispatch(getProducts(getProductsParams));
     }
   }, [location.search, dispatch, products.length, searchParams, location]);
+
+
 
   const handleClick = (id) => {
     let FilterData = products.filter((el) => {
@@ -47,6 +52,7 @@ const MensPage = () => {
     window.alert("added to cart")
     dispatch(addToCart(Fill[0]));
   };
+
 
   return (
     <div className="main">
