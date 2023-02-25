@@ -33,23 +33,19 @@ export const removeToCart = () => {
   };
 };
 
-// export const moveToWishlist = (payload) => {
-//   return {
-//     type: types.ADD_TO_WISHLIST,
-//     payload,
-//   };
-// };
+export const moveToWishlist = (payload) => {
+  return {
+    type: types.ADD_TO_WISHLIST,
+    payload,
+  };
+};
 
-// const removeToWishlist = () => {
-//   return {
-//     type: types.REMOVE_TO_WISHLIST,
-//   };
-// };
+
 
 export const getProducts = (params) => (dispatch) => {
   dispatch(getProductRequest());
   return axios
-    .get(`https://grumpy-lingerie-foal.cyclic.app/prod/search?type=Mens`, params)
+    .get(`https://product-data.onrender.com/mens`, params)
     .then((res) => {
       // console.log(res)
       dispatch(getProductSuccess(res.data));
@@ -58,11 +54,27 @@ export const getProducts = (params) => (dispatch) => {
       dispatch(getProductFailure());
     });
 };
+
+//https://grumpy-lingerie-foal.cyclic.app/prod/search?type=Womens
 // https://grumpy-lingerie-foal.cyclic.app/prod
-export const getWomens = (params) => (dispatch) => {
+ 
+ export const getWomens = (params) => (dispatch) => {
+    dispatch(getProductRequest());
+    return axios
+      .get(`https://product-data.onrender.com/womens`, params)
+      .then((res) => {
+        // console.log(res)
+        dispatch(getProductSuccess(res.data));
+      })
+      .catch((e) => {
+        dispatch(getProductFailure());
+      });
+  };
+
+export const getMobile = (params) => (dispatch) => {
   dispatch(getProductRequest());
   return axios
-    .get(`https://grumpy-lingerie-foal.cyclic.app/prod/search?type=Womens`, params)
+    .get(`https://product-data.onrender.com/covers`, params)
     .then((res) => {
       // console.log(res)
       dispatch(getProductSuccess(res.data));
@@ -76,6 +88,7 @@ export const addToCart = (params) => (dispatch) => {
   return axios
     .post(`https://product-data.onrender.com/cart`, params)
     .then((res) => {
+      console.log(res)
       dispatch(moveToCart(res.data));
     })
     .catch((e) => {

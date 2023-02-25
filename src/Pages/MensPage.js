@@ -5,13 +5,12 @@ import { useLocation, useSearchParams } from "react-router-dom";
 import { getProducts, addToCart, addToWishlist } from "../Redux/action";
 import { AiOutlineHeart } from "react-icons/ai"
 import { BsFillCartPlusFill } from "react-icons/bs";
-import { BiRupee } from "react-icons/bi"
 import "../CSS/Mens.css";
 import Sidebar from "../Components/Sidebar";
 const MensPage = () => {
   const {products} = useSelector((store) => store.products);
 
-  console.log(products)
+ // console.log(products)
 
   const dispatch = useDispatch();
   const location = useLocation();
@@ -65,9 +64,9 @@ const MensPage = () => {
           products.map((el) => {
             return (
               <div key={el.id}>
-                <img src={el.imageUrl} alt="prod_img" />
+                <img src={el.image} alt="prod_img" />
                 <div className="flextext">
-                    <div>
+                    <div >
                         <h4>{el.brand}</h4>
                         <p>{el.name}</p>
                         <p >

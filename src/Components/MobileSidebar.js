@@ -4,9 +4,9 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import "../CSS/sidebarStyles.css";
-const Sidebar = () => {
+const MobileSidebar = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const initialCategory = searchParams.getAll("category");
+  const initialCategory = searchParams.getAll("brand");
   const initialSort = searchParams.getAll("sort");
   const [category, setCategory] = useState(initialCategory || []);
   const [sort, setSort] = useState(initialSort[0] || "");
@@ -14,7 +14,6 @@ const Sidebar = () => {
     setSort(e.target.value);
   };
   const handleChange = (e) => {
-    console.log(e)
     const newCategory = [...category];
 
     if (newCategory.includes(e.target.value)) {
@@ -42,44 +41,43 @@ const Sidebar = () => {
       <div className="inside-container">
         <div>
           <h4>FILTERS</h4>
-          <p>Category</p>
-          <div className="category" onChange={handleChange}>
-            
-              <div>
-                <input
-                  type="checkbox"
-                  value="shirt"
-                  onChange={handleChange}
-                  checked={category.includes("shirt")}
-                />
-                <label>shirt</label>
-              </div>
-              <div>
-                <input
-                  type="checkbox"
-                  value="t-shirt"
-                  onChange={handleChange}
-                  checked={category.includes("t-shirt")}
-                />
-                <label>t-shirt</label>
-              </div>
-              <div>
-                <input
-                  type="checkbox"
-                  value="jeans"
-                  onChange={handleChange}
-                  checked={category.includes("jeans")}
-                />
-                <label>jeans</label>
-              </div>
-              <div>
+          <div className="category">
+            <p>Brand</p>
+            <div>
               <input
                 type="checkbox"
-                value="kurta"
+                value="Bewakoof"
                 onChange={handleChange}
-                checked={category.includes("kurta")}
+                checked={category.includes("Bewakoof")}
               />
-              <label>kurta</label>
+              <label>Bewakoof</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                value="Apple"
+                onChange={handleChange}
+                checked={category.includes("Apple")}
+              />
+              <label>Apple</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                value="One Plus"
+                onChange={handleChange}
+                checked={category.includes("One Plus")}
+              />
+              <label>One Plus</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                value="Xiaomi"
+                onChange={handleChange}
+                checked={category.includes("Xiaomi")}
+              />
+              <label>Xiaomi</label>
             </div>
           </div>
         </div>
@@ -121,4 +119,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default MobileSidebar;
