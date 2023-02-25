@@ -6,7 +6,7 @@ import Home from "../Pages/Home";
 import MensPage from "../Pages/MensPage";
 import MyAccount from "../Pages/MyAccount";
 import Order from "../Pages/Order";
-import Register from "../Pages/Register";
+
 import Payment from "../Pages/Payment/Payment";
 import WomensPage from "../Pages/WomensPage";
 
