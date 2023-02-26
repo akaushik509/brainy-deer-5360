@@ -13,18 +13,17 @@ function AllRoutes() {
   return (
     <Routes>
 
-       {/* <Route path="/" element={<Home />}></Route>
-      <Route path="/login" element={<Register />} /> */}
+       <Route path="/" element={<Home />}></Route>
+      {/* <Route path="/login" element={<Register />} /> */}
 
-
-       {/* <Route path="/" element={<Home />}></Route> */}
-      {/* <Route path="/mens" element={<MensPage/>} /> */}
+      
+      <Route path="/mens" element={<MensPage/>} />
       <Route path="/womens" element={<WomensPage/>} />
-      {/* <Route path="/mobile" element={<MobilePage/>} />
+       <Route path="/mobile" element={<MobilePage/>} />
       <Route path="/cart" element={<Cart/>}></Route>
       <Route path="/address" element={<Address />}/>
       <Route path="/payment" element={<Payment/>}></Route>
-      <Route path="/myaccount" element={<MyAcoount/>} /> */}
+      <Route path="/myaccount" element={<MyAcoount/>} />
 
 
     </Routes>

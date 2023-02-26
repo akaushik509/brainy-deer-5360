@@ -5,6 +5,7 @@
   display: flex;
   justify-content: space-between;
 }
+
  .fixed-sidebar{
   /* border:1px solid red; */
   width:30%;
@@ -12,8 +13,9 @@
   left:0px;
   top:0px;
    margin-right: 100px; 
-   margin-top: 50px; 
+   margin-top: 170px; 
 } 
+  
 .heading{
   /* border:1px solid red; */
   margin-bottom: 50px;
@@ -88,11 +90,12 @@
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px) {
   
   .main{
-    /* display:flex; */
-    padding: 2px;
+    display:flex;
+    flex-direction:column;
+    padding: 10px;
  
   }
   .fixed-sidebar{
@@ -107,6 +110,7 @@
     grid-template-columns: repeat(1, 200px);
     grid-template-rows: auto;
     font-family: "Lato", sans-serif;
-    margin-left: 150px;
+    margin-left: 100px;
+    margin-top: 50px;
   }
 }

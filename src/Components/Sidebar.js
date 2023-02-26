@@ -82,6 +82,7 @@ const Sidebar = () => {
               <label>kurta</label>
             </div>
           </div>
+         
         </div>
         <h4>SORT</h4>
         <div onChange={handleSort}>
