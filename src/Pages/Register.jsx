@@ -16,24 +16,61 @@ import {
   Image,
   Container,
 } from "@chakra-ui/react";
-
+import axios from "axios";
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Appcontext } from "../context/Appcontext";
+
+import { useToast } from "@chakra-ui/react";
+// import { Appcontext } from "../context/Appcontext";
 
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
 function Register() {
   const [showPassword, setShowPassword] = useState(false);
-  const [user, setUser] = useState({});
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [imageUrl, setimageUrl] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const toast = useToast();
   const navigate = useNavigate();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setIsLoading(true);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
+    try {
+      const response = await axios.post(
+        "https://grumpy-lingerie-foal.cyclic.app/users/register",
+        {
+          name,
+          email,
+          password,
+          imageUrl,
+        }
+      );
+      console.log(response.data);
+      toast({
+        title: "Account created.",
+        description: "Your account has been successfully created",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
+      navigate("/login");
+    } catch (error) {
+      console.error(error);
+      toast({
+        description: "Please provide all fields",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+      setErrorMessage("An error occurred. Please try again later.");
+    } finally {
+      setIsLoading(false);
+    }
   };
-
-  const { handleSignup } = useContext(Appcontext);
   return (
     <Container maxW={"5xl"}>
       <HStack>
@@ -55,7 +92,7 @@ function Register() {
                 Hi new buddy, let's get you started with theTrendy Treasures!
               </Text>
             </Stack>
-            <form onSubmit={(e) => handleSignup(e, user)}>
+            <form onSubmit={handleSubmit}>
               <Box
                 rounded={"lg"}
                 bg={useColorModeValue("white", "yellow.700")}
@@ -68,9 +105,9 @@ function Register() {
                       <FormControl id="firstName" isRequired>
                         <FormLabel>First Name</FormLabel>
                         <Input
-                          onChange={handleChange}
-                          name="name"
                           type="text"
+                          value={name}
+                          onChange={(event) => setName(event.target.value)}
                         />
                       </FormControl>
                     </Box>
@@ -78,23 +115,28 @@ function Register() {
                       <FormControl id="imageurl">
                         <FormLabel>Image</FormLabel>
                         <Input
-                          onChange={handleChange}
-                          name="imageurl"
-                          type="imageurl"
+                          type="text"
+                          value={imageUrl}
+                          onChange={(event) => setimageUrl(event.target.value)}
                         />
                       </FormControl>
                     </Box>
                   </Flex>
                   <FormControl id="email" isRequired>
                     <FormLabel>Email address</FormLabel>
-                    <Input onChange={handleChange} name="email" type="email" />
+                    <Input
+                      type="email"
+                      value={email}
+                      onChange={(event) => setEmail(event.target.value)}
+                    />
                   </FormControl>
                   <FormControl id="password" isRequired>
                     <FormLabel>Password</FormLabel>
                     <InputGroup>
                       <Input
-                        onChange={handleChange}
-                        name="password"
+                        // type="password"
+                        value={password}
+                        onChange={(event) => setPassword(event.target.value)}
                         type={showPassword ? "text" : "password"}
                       />
                       <InputRightElement h={"full"}>
