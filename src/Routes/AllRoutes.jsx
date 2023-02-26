@@ -4,12 +4,12 @@ import Address from "../Pages/Cart/Address";
 import Cart from "../Pages/Cart/Cart";
 import Home from "../Pages/Home";
 import MensPage from "../Pages/MensPage";
-import MyAccount from "../Pages/MyAccount";
-import Order from "../Pages/Order";
+// import MyAccount from "../Pages/MyAccount";
+// import Order from "../Pages/Order";
 
 import Payment from "../Pages/Payment/Payment";
 
-import MyAcoount from "../Pages/MyAcoount";
+// import MyAcoount from "../Pages/MyAcoount";
 
 import Register from "../Pages/Register";
 import Login from "../Pages/Login";
@@ -31,7 +31,7 @@ function AllRoutes() {
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
       <Route path="/mens" element={<MensPage />} />
-      <Route path="/myaccount" element={<MyAcoount />} />
+      {/* <Route path="/myaccount" element={<MyAcoount />} /> */}
     </Routes>
   );
 }
