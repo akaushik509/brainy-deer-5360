@@ -456,8 +456,8 @@ const Navbar = () => {
                                 </PopoverContent>
                                 </Popover> */}
                                 
-                                <Button bg={"white.500"} _hover={{ bg: "white.500" }}><Icon as={FaHeart} color="black.500" boxSize={6} /></Button>
-                                <Button bg={"white.500"} _hover={{ bg: "white.500" }}><Icon as={TiShoppingBag} boxSize={6} color="gray.500" /></Button>
+                                <Button bg={"white.500"} _hover={{ bg: "white.500" }}><NavLink to="/cart"><Icon as={FaHeart} color="black.500" boxSize={6} /></NavLink></Button>
+                                <Button bg={"white.500"} _hover={{ bg: "white.500" }}><NavLink to="/order"><Icon as={TiShoppingBag} boxSize={6} color="gray.500" /></NavLink></Button>
                             </Center>
                         </Flex>
                     </Flex>
@@ -556,8 +556,8 @@ const Navbar = () => {
                                         )}
                                         </Menu>
                                         
-                                        <Button bg={"white.500"} _hover={{ bg: "white.500" }}><Icon as={FaHeart} color="black.500" boxSize={6} /></Button>
-                                        <Button bg={"white.500"} _hover={{ bg: "white.500" }}><Icon as={TiShoppingBag} boxSize={6} color="gray.500" /></Button>
+                                        <Button bg={"white.500"} _hover={{ bg: "white.500" }}><NavLink to="/cart"><Icon as={FaHeart} color="black.500" boxSize={6} /></NavLink></Button>
+                                        <Button bg={"white.500"} _hover={{ bg: "white.500" }}><NavLink to="/order"><Icon as={TiShoppingBag} boxSize={6} color="gray.500" /></NavLink></Button>
                                     
                                 </Flex>
 
@@ -577,8 +577,8 @@ const Navbar = () => {
                                 )}
                                 </Menu>
                                 
-                                <Button bg={"white.500"} _hover={{ bg: "white.500" }}><Icon as={FaHeart} color="black.500" boxSize={6} /></Button>
-                                <Button bg={"white.500"} _hover={{ bg: "white.500" }}><Icon as={TiShoppingBag} boxSize={6} color="gray.500" /></Button>
+                                <Button bg={"white.500"} _hover={{ bg: "white.500" }}><NavLink to="/cart"><Icon as={FaHeart} color="black.500" boxSize={6} /></NavLink></Button>
+                                <Button bg={"white.500"} _hover={{ bg: "white.500" }}><NavLink to="/order"><Icon as={TiShoppingBag} boxSize={6} color="gray.500" /></NavLink></Button>
                             
                         </Flex>
 

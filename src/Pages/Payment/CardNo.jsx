@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 // import SuccessModal from "../Login/Modal";
 import styles from "./styles/nav.module.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CardNo = () => {
   const navigate = useNavigate();
@@ -94,9 +94,11 @@ const CardNo = () => {
           This transaction you make is totally secure. We don't save your CVV
           number.
         </p>
+        <Link to={"/"}>
         <button type="submit" className={styles.btton}>
           Pay
         </button>
+        </Link>
       </Form>
     </div>
   );

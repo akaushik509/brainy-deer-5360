@@ -16,14 +16,14 @@ const Payment = () => {
           <Navigator />
         </div>
         <div>
-          <div className={styles.Header}>
+          {/* <div className={styles.Header}>
             <h6 className={styles.Heading}>Items You are paying for</h6>
-          </div>
+          </div> */}
 
           {cart.map((item, index) => (
             <Card key={index} item={item} />
           ))}
-          <Table />
+          {/* <Table /> */}
         </div>
       </div>
       {/* <Footer /> */}
