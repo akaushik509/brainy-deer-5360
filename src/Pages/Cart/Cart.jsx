@@ -17,8 +17,21 @@ const Cart = () => {
   // const { token } = useSelector((state) => state.auth.data);
 
   useEffect(() => {
-    dispatch(getCartApi());
+    // dispatch(getCartApi())
+    getCart();
   }, []);
+  const getCart = () =>{
+    return fetch("https://grumpy-lingerie-foal.cyclic.app/cart/getcart",{
+        headers:{
+            "Authorization":localStorage.getItem("token")
+        }
+    }).then(res=>res.json())
+    .then(res=>{
+        console.log(res)
+        // setCartData(res)
+    })
+    .catch(err=>console.log(err)) 
+};
 
   if (loading) {
     return (

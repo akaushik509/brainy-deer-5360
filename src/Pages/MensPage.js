@@ -12,7 +12,7 @@ import "../CSS/Topsidebar.css"
 const MensPage = () => {
   const {products} = useSelector((store) => store.products);
 
- // console.log(products)
+ console.log(products)
 
   const dispatch = useDispatch();
   const location = useLocation();

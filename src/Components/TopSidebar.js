@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
-import "../CSS/Topsidebar.css"
+// import "../CSS/Topsidebar.css"
 const Topsidebar = () =>{
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCategory = searchParams.getAll("category");
