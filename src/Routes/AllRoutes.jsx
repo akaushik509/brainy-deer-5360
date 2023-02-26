@@ -8,6 +8,8 @@ import Payment from "../Pages/Payment/Payment";
 import MyAcoount from "../Pages/MyAcoount";
 import WomensPage from "../Pages/WomensPage";
 import MobilePage from "../Pages/MobilePage";
+import ProductPage from "../Pages/ProductPage";
+
 
 function AllRoutes() {
   return (
@@ -16,7 +18,7 @@ function AllRoutes() {
        <Route path="/" element={<Home />}></Route>
       {/* <Route path="/login" element={<Register />} /> */}
 
-      
+      <Route path="/productpage" element={<ProductPage/>} />
       <Route path="/mens" element={<MensPage/>} />
       <Route path="/womens" element={<WomensPage/>} />
        <Route path="/mobile" element={<MobilePage/>} />

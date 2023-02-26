@@ -503,8 +503,8 @@ const Navbar = () => {
             <Box  w={{sm: '5px', md: '400px', lg: '800px'}}  margin="auto" >
                 <Center justifyContent="space-evenly">
                 <Button bg={"white.500"} _hover={{bg:"white.500"}} ><NavLink to="/mens">MEN</NavLink></Button>
-                <Button bg={"white.500"} _hover={{bg:"white.500"}} ><NavLink to="/login">WOMEN</NavLink></Button>
-                <Button bg={"white.500"} _hover={{bg:"white.500"}} ><NavLink to="/myaccount">ACCESSORIES</NavLink></Button>
+                <Button bg={"white.500"} _hover={{bg:"white.500"}} ><NavLink to="/womens">WOMEN</NavLink></Button>
+                <Button bg={"white.500"} _hover={{bg:"white.500"}} ><NavLink to="/mobile">ACCESSORIES</NavLink></Button>
                 </Center>
             </Box>
         </Flex>

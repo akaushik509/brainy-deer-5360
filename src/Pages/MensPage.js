@@ -7,8 +7,7 @@ import { AiOutlineHeart } from "react-icons/ai"
 import { BsFillCartPlusFill } from "react-icons/bs";
 import "../CSS/Mens.css";
 import Sidebar from "../Components/Sidebar";
-import TopSidebar from "../Components/TopSidebar";
-import "../CSS/Topsidebar.css"
+
 const MensPage = () => {
   const {products} = useSelector((store) => store.products);
 
@@ -66,10 +65,10 @@ const MensPage = () => {
           products.map((el) => {
             return (
               <div key={el.id}>
-                <img src={el.image} alt="prod_img" />
+                <img src={el.imageUrl} alt="prod_img" />
                 <div className="flextext">
                     <div >
-                        <h4>{el.Brand}</h4>
+                        <h4>{el.brand}</h4>
                         <p>{el.name}</p>
                         <p >
                           <span className="price"><b>₹{el.price}</b> </span>  <span><del>₹{el.oldprice}</del></span> 

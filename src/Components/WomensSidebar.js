@@ -84,7 +84,7 @@ const WomenSidebar = () => {
         <h4>SORT</h4>
         <div onChange={handleSort} className="popular">
           <select name="sortBy">
-            <option value="">Popular</option>
+            <option value="">All</option>
             <option value="asc">Low-to-High</option>
             <option value="desc">High-to-Low</option>
           </select>

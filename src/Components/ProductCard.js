@@ -1,6 +1,6 @@
 import React from "react";
-import { Box, Flex, Text, Image, Button } from "@chakra-ui/react";
-
+import "../CSS/ProductCard.css"
+import { BsFillCartPlusFill } from "react-icons/bs";
 
 
 const ProductCard = ({ product }) => {
@@ -48,23 +48,50 @@ const ProductCard = ({ product }) => {
       
 
   return (
-    <Box borderWidth="1px" borderRadius="md" p="3" maxW="300px" w="100%">
-      <Image src={product.imageUrl} alt={product.name} mb="3" />
-      <Flex justify="space-between" align="center" mb="2">
-        <Text fontSize="md" fontWeight="bold" mb="1">
-          {product.name}
-        </Text>
-        <Text fontSize="md" fontWeight="bold" mb="1">
-          ${product.price}
-        </Text>
-      </Flex>
-      <Text fontSize="sm" mb="2">
-        product.description
-      </Text>
-      <Button colorScheme="blue" size="sm" onClick={()=>{addToCart(product._id)}}>
-        Add to Cart
-      </Button>
-    </Box>
+    // <Box borderWidth="1px" borderRadius="md" p="3" maxW="300px" w="100%">
+    //   <Image src={product.imageUrl} alt={product.name} mb="3" />
+    //   <Flex justify="space-between" align="center" mb="2">
+    //     <Text fontSize="md" fontWeight="bold" mb="1">
+    //       {product.name}
+    //     </Text>
+    //     <Text fontSize="md" fontWeight="bold" mb="1">
+    //       ${product.price}
+    //     </Text>
+    //   </Flex>
+    //   <Text fontSize="sm" mb="2">
+    //     product.description
+    //   </Text>
+    //   <Button colorScheme="blue" size="sm" onClick={()=>{addToCart(product._id)}}>
+    //     Add to Cart
+    //   </Button>
+    // </Box>
+    
+   
+     
+    
+    <div className="Card">
+     
+            <div>
+                <img src={product.imageUrl} alt="prod_img" />
+                  <div className="flextext">
+                      <div >
+                          <h4>{product.brand}</h4>
+                          <p>{product.name}</p>
+                          <p >
+                            <span className="price"><b>₹{product.price}</b> </span>  <span><del>₹{product.oldprice}</del></span> 
+                          </p>
+                      </div>
+                      <div className="icon">
+                          <BsFillCartPlusFill onClick={() => addToCart(product.id)} />
+                          {/* <AiOutlineHeart onClick={() => handleClick(el.id)} /> */}
+                      </div>
+                  </div>
+            </div>
+              
+           
+         
+    </div>
+ 
   );
 };
 

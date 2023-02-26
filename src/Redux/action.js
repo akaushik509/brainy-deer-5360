@@ -45,7 +45,7 @@ export const moveToWishlist = (payload) => {
 export const getProducts = (params) => (dispatch) => {
   dispatch(getProductRequest());
   return axios
-    .get(`https://product-data.onrender.com/mens`, params)
+    .get(`https://grumpy-lingerie-foal.cyclic.app/prod/search?type=mens`, params)
     .then((res) => {
       // console.log(res)
       dispatch(getProductSuccess(res.data));
@@ -61,7 +61,7 @@ export const getProducts = (params) => (dispatch) => {
  export const getWomens = (params) => (dispatch) => {
     dispatch(getProductRequest());
     return axios
-      .get(`https://product-data.onrender.com/womens`, params)
+      .get(`https://grumpy-lingerie-foal.cyclic.app/prod/search?type=Womens`, params)
       .then((res) => {
         // console.log(res)
         dispatch(getProductSuccess(res.data));
