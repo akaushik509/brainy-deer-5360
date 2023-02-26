@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
           productId: productId,
          
         };
-        
+        window.alert("added to cart")
         // make the request
         fetch('https://grumpy-lingerie-foal.cyclic.app/cart/addtocart', {
           method: 'POST',

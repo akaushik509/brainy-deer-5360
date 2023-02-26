@@ -32,7 +32,8 @@
   justify-content: flex-end;
   align-items: flex-start;
   flex-wrap: wrap-reverse;
-  margin-top: 80px;
+  margin-top: 120px;
+  margin:auto;
   font-family: "Lato", sans-serif;
   padding: 5px;
   /* max-width: 1000px; */
