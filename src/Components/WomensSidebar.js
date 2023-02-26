@@ -40,8 +40,9 @@ const WomenSidebar = () => {
       <div className="inside-container">
         
           <h4>FILTERS</h4>
+          <p>Category</p>
           <div className="category">
-            <p>Category</p>
+            
             <div>
               <input
                 type="checkbox"
