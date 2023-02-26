@@ -10,7 +10,7 @@ import Order from "../Pages/Order";
 
 
 import Payment from "../Pages/Payment/Payment";
-import MyAcoount from "../Pages/MyAcoount";
+// import MyAcoount from "../Pages/MyAcoount";
 
 
 import Register from "../Pages/Register";
@@ -35,7 +35,7 @@ function AllRoutes() {
       <Route path="/cart" element={<Cart/>}></Route>
       <Route path="/address" element={<Address />}/>
       <Route path="/payment" element={<Payment/>}></Route>
-      <Route path="/myaccount" element={<MyAcoount/>} />
+      {/* <Route path="/myaccount" element={<MyAcoount/>} /> */}
 
 
 
@@ -50,7 +50,7 @@ function AllRoutes() {
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
       <Route path="/mens" element={<MensPage />} />
-      <Route path="/myaccount" element={<MyAcoount />} />
+      {/* <Route path="/myaccount" element={<MyAcoount />} /> */}
 
     </Routes>
   );
