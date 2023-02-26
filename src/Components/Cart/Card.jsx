@@ -9,7 +9,7 @@ const Card = ({ Item }) => {
     dispatch(deleteCartApi(Item._id));
   };
   const handleChange = (e) => {
-    dispatch(changeCart(Item._id, Number(e.target.value)));
+    /* dispatch(changeCart(Item._id, Number(e.target.value))); */
   };
   return (
     <div className={styles.Cont}>

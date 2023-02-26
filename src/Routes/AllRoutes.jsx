@@ -1,5 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import AdminAddProduct from "../Pages/Admin/AdminAddProduct";
+import AdminLogin from "../Pages/Admin/AdminLogin";
+import Dashboard from "../Pages/Admin/Dashboard";
+import ProductAdmin from "../Pages/Admin/ProductAdmin";
 import Address from "../Pages/Cart/Address";
 import Cart from "../Pages/Cart/Cart";
 import Home from "../Pages/Home";
@@ -22,6 +26,10 @@ function AllRoutes() {
       <Route path="/payment" element={<Payment/>}></Route>  
       <Route path="/myaccount" element={<MyAccount/>} />
       <Route path="/order" element={<Order/>}></Route>
+      <Route path="/adminlogin" element={<AdminLogin/>}></Route>
+      <Route path="/admin" element={<Dashboard/>}></Route>
+      <Route path="/productadmin" element={<ProductAdmin/>}></Route>
+      <Route path="/addproductadmin" element={<AdminAddProduct/>}></Route>
     </Routes>
   );
 }

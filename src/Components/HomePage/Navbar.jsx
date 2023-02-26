@@ -19,6 +19,7 @@ import { TiShoppingBag, TiThMenu } from "react-icons/ti";
 import { NavLink } from "react-router-dom";
 
 import React, {useEffect, useState} from 'react';
+import AdminNavbar from '../../Pages/Admin/AdminNavbar';
 
 const Navbar = () => {
 
@@ -42,6 +43,10 @@ const Navbar = () => {
         
         isLoggedIn = !!token; // Check if token exists
     }
+
+    if(token == "token name is avinash"){
+        return(<AdminNavbar/>)
+    }else
     
 
   return (
@@ -429,7 +434,7 @@ const Navbar = () => {
                                         </PopoverTrigger>
                                         <PopoverContent width="auto" gap="3px" padding="5px" >
                                             <Button><NavLink to="/login">User Login</NavLink></Button>
-                                            <Button><NavLink to="/">Admin Login</NavLink></Button>
+                                            <Button><NavLink to="/adminlogin">Admin Login</NavLink></Button>
                                         </PopoverContent>
                                         </Popover>
                                     )
@@ -566,7 +571,7 @@ const Navbar = () => {
                                     </MenuButton>
                                     <MenuList>
                                         <MenuItem><NavLink to="/login">User Login</NavLink></MenuItem>
-                                        <MenuItem><NavLink to="/admin">Admin Login</NavLink></MenuItem>
+                                        <MenuItem><NavLink to="/adminlogin">Admin Login</NavLink></MenuItem>
                                     </MenuList>
                                     </>
                                 )}
