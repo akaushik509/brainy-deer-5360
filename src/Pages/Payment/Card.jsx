@@ -8,9 +8,9 @@ const Card = ({ item }) => {
 
   return (
     <div className={styles.card}>
-      {/* <div>
+      <div>
         <img src={item.images[0]} alt="" />
-      </div> */}
+      </div>
       <div>
         <p>{item.title}</p>
       </div>

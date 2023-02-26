@@ -10,13 +10,7 @@ import "../CSS/Mens.css";
 import Sidebar from "../Components/Sidebar";
 import { Flex,Text,Select,Input,Button } from "@chakra-ui/react";
 const MensPage = () => {
-/*   const {products} = useSelector((store) => store.products);
 
-  console.log(products)
-
-  const dispatch = useDispatch();
-  const location = useLocation();
-  const [searchParams] = useSearchParams(); */
 
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -64,42 +58,6 @@ const MensPage = () => {
     .catch(error => console.error(error));
   }
 
-
- /*  useEffect(() => {
-    if (location || products.length === 0) {
-      const sortBy = searchParams.get("sort")
-      const getProductsParams = {
-        params: { category: searchParams.getAll("category"),
-      _sort: sortBy && "price",
-      _order: sortBy,  
-    },
-      };
-      dispatch(getProducts(getProductsParams));
-    }
-  }, [location.search, dispatch, products.length, searchParams, location]); */
-
-
-
-/*   const handleClick = (id) => {
-    let FilterData = products.filter((el) => {
-      if (el.id === id) {
-        return el;
-      }
-    });
-
-    window.alert("added to wishlist")
-
-    dispatch(addToWishlist(FilterData[0]));
-  };
-  const handleCart = (id) => {
-    let Fill = products.filter((el) => {
-      if (el.id === id) {
-        return el;
-      }
-    });
-    window.alert("added to cart")
-    dispatch(addToCart(Fill[0]));
-  }; */
 
 
   return (

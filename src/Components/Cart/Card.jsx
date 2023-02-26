@@ -6,7 +6,7 @@ import styles from "./styles/Card.module.css";
 const Card = ({ Item }) => {
   const dispatch = useDispatch();
   const handleDelete = () => {
-    dispatch(deleteCartApi(Item._id));
+    // dispatch(deleteCartApi(Item._id));
   };
   const handleChange = (e) => {
     dispatch(changeCart(Item._id, Number(e.target.value)));
