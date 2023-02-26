@@ -90,6 +90,12 @@ function Login() {
                 to enjoy all of our cool{" "}
                 <Link color={"yellow.400"}>Trendy Treasures </Link>
               </Text>
+              <Text fontSize={"lg"} color={"gray.600"}>
+                New to our website{" "}
+                <Link color={"yellow.400"} href="/register">
+                  Register here
+                </Link>
+              </Text>
             </Stack>
             <form onSubmit={handleSubmit}>
               <Box
