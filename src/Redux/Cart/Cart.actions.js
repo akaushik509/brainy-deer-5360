@@ -2,7 +2,7 @@ import axios from "axios";
 import {
   ADD_TO_CART,
   GET_CART_Items,
-  CHANGE_CART_QTY,
+
   REMOVE_FROM_CART,
   CART_LOADING,
   CART_ERROR,
@@ -16,10 +16,10 @@ export const getCartApi = () => async (dispatch) => {
   });
   try {
     let r = await axios.get(
-      "https://grumpy-lingerie-foal.cyclic.app/prod",
+      "https://grumpy-lingerie-foal.cyclic.app/cart/getcart",
       {
         headers: {
-          token: token,
+          "Authorization": token,
         },
       }
     );
@@ -40,7 +40,7 @@ export const AddtoCartApi = (data) => async (dispatch) => {
   });
   try {
     let r = await axios.post(
-      "https://grumpy-lingerie-foal.cyclic.app/prod",
+      "https://grumpy-lingerie-foal.cyclic.app/cart/addtocart",
       { ...data, qty: 1 },
       {
         headers: {
@@ -65,7 +65,7 @@ export const deleteCartApi = (_id) => async (dispatch) => {
   });
   try {
     let r = await axios.delete(
-      `https://grumpy-lingerie-foal.cyclic.app/prod/${_id}`,
+      `https://grumpy-lingerie-foal.cyclic.app/cart/removefromcart/${_id}`,
       {
         headers: {
           token: token,
@@ -86,7 +86,7 @@ export const deleteCartApi = (_id) => async (dispatch) => {
   }
 };
 
-export const changeCart = (_id, qnt) => async (dispatch) => {
+/* export const changeCart = (_id, qnt) => async (dispatch) => {
   dispatch({
     type: CART_LOADING,
   });
@@ -110,4 +110,4 @@ export const changeCart = (_id, qnt) => async (dispatch) => {
       type: CART_ERROR,
     });
   }
-};
+}; */
