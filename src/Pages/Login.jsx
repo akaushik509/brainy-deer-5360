@@ -55,16 +55,24 @@ function Login() {
           isClosable: true,
         });
         navigate("/");
+      } else {
+        toast({
+          description: "Failed",
+          status: "error",
+          duration: 2000,
+          isClosable: true,
+        });
+        navigate("/login");
       }
     } catch (error) {
+      console.error(error);
       toast({
-        description: "Failed",
+        description: "Failed to login",
         status: "error",
         duration: 2000,
         isClosable: true,
       });
       navigate("/login");
-      console.error(error);
     }
   };
 
