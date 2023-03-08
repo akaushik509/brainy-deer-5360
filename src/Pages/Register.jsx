@@ -61,7 +61,7 @@ function Register() {
     } catch (error) {
       console.error(error);
       toast({
-        description: "Please provide all fields",
+        description: "Email already exists",
         status: "error",
         duration: 5000,
         isClosable: true,
