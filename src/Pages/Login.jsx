@@ -55,9 +55,10 @@ function Login() {
           isClosable: true,
         });
         navigate("/");
+        window.location.reload()
       } else {
         toast({
-          description: "Failed",
+          description: "Email not Registered",
           status: "error",
           duration: 2000,
           isClosable: true,
@@ -67,7 +68,7 @@ function Login() {
     } catch (error) {
       console.error(error);
       toast({
-        description: "Failed to login",
+        description: "Email not Registered",
         status: "error",
         duration: 2000,
         isClosable: true,
