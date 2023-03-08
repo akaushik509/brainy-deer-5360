@@ -8,7 +8,8 @@ import { BsFillCartPlusFill } from "react-icons/bs";
 import { BiRupee } from "react-icons/bi"
 import "../CSS/Mens.css";
 import Sidebar from "../Components/Sidebar";
-import { Flex,Text,Select,Input,Button } from "@chakra-ui/react";
+import { Flex,Text,Select,Input,Button, useToast, Box, Image, GridItem } from "@chakra-ui/react";
+import Grid from "react-loading-icons/dist/esm/components/grid";
 const MensPage = () => {
 
 
@@ -16,6 +17,7 @@ const MensPage = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  const toast = useToast();
 
   useEffect(() => {
     // Fetch all products and categories from the API
@@ -53,7 +55,15 @@ const MensPage = () => {
       },
       body: JSON.stringify(body)
     })
-    .then(response => response.json())
+    .then(response => {
+      response.json()
+      toast({
+        description: "Product is successfully added to Cart",
+        status: "success",
+        duration: 2000,
+        isClosable: true,
+      });
+    })
     .then(data => console.log(data))
     .catch(error => console.error(error));
   }
@@ -61,13 +71,13 @@ const MensPage = () => {
 
 
   return (
-    <div >
-      {/* <div className="fixed-sidebar"> */}
-      <Flex justify="space-between" align="center" mb="6" w={"70%"} margin={"auto"}>
-        <Text fontSize="xl" fontWeight="bold">
+    < >
+      {/* <Box className="fixed-sidebar"> */}
+      <Flex justify="space-between" align="center" mb="6" w={"70%"} margin={"auto"} display={{sm:"grid", md:"grid", lg:"flex"}}>
+        <Text fontSize={{base:"sm", md:"md", xl:"3xl"}} fontWeight="bold">
           Products
         </Text>
-        <Flex align="center">
+        <Flex align="center" >
           <Select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
@@ -90,33 +100,32 @@ const MensPage = () => {
           <Button onClick={() => setSearchTerm("")}>Clear</Button>
         </Flex>
       </Flex>
-      {/* </div> */}
+      {/* </Box> */}
      
-      <div className="Card">
+      <Box w="70%" margin={"auto"} display={"grid"} gap="10px" gridTemplateColumns={{sm:"repeat(1, 1fr)", md:"repeat(3, 1fr)", xl: "repeat(3, 1fr)"}}>
         {filteredProducts &&
           filteredProducts.map((el) => {
             return (
-              <div key={el._id}>
-                <img src={el.imageUrl} alt="prod_img" />
-                <div className="flextext">
-                    <div>
-                        <h4>{el.brand}</h4>
-                        <p>{el.name}</p>
-                        <p >
-                          <span className="price"><b>₹{el.price}</b> </span>  <span><del>₹{el.oldprice}</del></span> 
-                         </p>
-                    </div>
-                    <div className="icon">
-                        <BsFillCartPlusFill onClick={() => addToCart(el._id)} />
-                        {/* <AiOutlineHeart onClick={() => handleClick(el.id)} /> */}
-                    </div>
-                </div>
-              </div>
+              <Box w="100%" key={Date.now()}>
+                <Image src={el.imageUrl} alt="prod_img" />
+                <Box>
+                    <Box>
+                        <Text>{el.brand}</Text>
+                        <Text>{el.name}</Text>
+                        <Text >
+                          <span ><b>₹{el.price}</b> </span>  <span><del>₹{el.oldprice}</del></span> 
+                         </Text>
+                    </Box>
+                    <Box>
+                        <Button onClick={() => addToCart(el._id)}>Add To Cart</Button>
+                    </Box>
+                </Box>
+              </Box>
             );
           })}
-      </div>
+      </Box>
       
-    </div>
+    </>
   );
 };
 
